@@ -1,52 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#101026">
-  <title>Hello, World — A New Beginning</title>
+  <title>Hello, Kazim — A New Beginning</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-    :root { color-scheme: dark; font-family: 'DM Sans', sans-serif; background: #101026; color: #f7f5ff; }
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100svh; overflow-x: hidden; }
-    body::before { content: ''; position: fixed; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 78% 30%, #7447ce28, transparent 48%), radial-gradient(ellipse at 10% 90%, #1a9b9b16, transparent 45%); }
-    .shell { max-width: 1280px; margin: auto; padding: 32px 6%; position: relative; }
-    header, footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { font-weight: 700; letter-spacing: -.6px; font-size: 21px; display: flex; align-items: center; gap: 11px; }
-    .brand-icon { color: #c2afff; font-family: monospace; font-size: 26px; }
-    .status { display: flex; gap: 9px; align-items: center; color: #aaa7bf; font-size: 12px; }
-    .dot { width: 6px; height: 6px; border-radius: 50%; background: #8ce6c0; box-shadow: 0 0 14px #8ce6c066; }
-    main { min-height: calc(100svh - 180px); display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 42px; padding: 70px 0; }
-    .eyebrow { color: #c4b2ff; text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: 2.6px; display: flex; align-items: center; gap: 12px; }
-    .eyebrow::before { content: ''; width: 28px; height: 1px; background: #b59bf4; }
-    h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(64px, 7.8vw, 104px); font-weight: 500; line-height: 1.02; letter-spacing: -6px; margin: 28px 0 25px; }
-    h1 span { background: linear-gradient(105deg, #cbb7ff 5%, #a697fc 50%, #82dfda); background-clip: text; color: transparent; }
-    .description { max-width: 360px; color: #a6a3ba; font-size: 16px; line-height: 1.8; }
-    button { margin-top: 25px; border: 1px solid #d9cfff44; background: #c7b4ff; color: #22183b; padding: 16px 23px; border-radius: 9px; font: 700 13px 'DM Sans', sans-serif; cursor: pointer; display: inline-flex; align-items: center; gap: 29px; transition: transform .2s, box-shadow .2s; }
-    button:hover { transform: translateY(-3px); box-shadow: 0 10px 35px #b195ff30; }
-    button:focus-visible { outline: 3px solid #8ce6c0; outline-offset: 5px; }
-    .note { color: #77748f; font-size: 11px; margin-top: 18px; letter-spacing: .2px; }
-    .art { position: relative; height: 440px; display: grid; place-items: center; }
-    .orbit { position: absolute; width: 350px; height: 350px; border: 1px solid #c8b0ff19; border-radius: 50%; transform: rotate(-30deg) scaleY(.7); }
-    .orbit.two { width: 460px; height: 460px; transform: rotate(35deg) scaleY(.7); border-style: dashed; }
-    .orb { width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, #f0ddff, #b28af2 30%, #6654b9 60%, #242752 85%); box-shadow: inset -22px -20px 38px #080d2a88, 0 0 90px #9563e72b; animation: float 6s ease-in-out infinite; position: relative; }
-    .orb::after { content: ''; position: absolute; inset: -17px; border-radius: 50%; border: 1px solid #ccbcff1c; }
-    .code-card { position: absolute; bottom: 32px; left: 10px; right: 0; max-width: 370px; margin: auto; padding: 18px 22px; border: 1px solid #c4b3ff29; border-radius: 12px; background: #18182cdd; backdrop-filter: blur(18px); box-shadow: 0 20px 60px #0003; transform: rotate(-4deg); }
-    .window-dots { display: flex; gap: 5px; margin-bottom: 17px; }
-    .window-dots i { width: 6px; height: 6px; border-radius: 50%; background: #55516d; }
-    .window-dots i:first-child { background: #ce91ad; } .window-dots i:nth-child(2) { background: #d7c18e; } .window-dots i:last-child { background: #8fc6b0; }
-    code { font-size: 13px; color: #a9a4c1; } .purple { color: #c7a5fa; } .mint { color: #9ce0cc; }
-    .spark { position: absolute; color: #d5c4ff; font-size: 30px; top: 48px; right: 42px; }
-    .tiny-star { position: absolute; color: #95d7cf; top: 150px; left: 22px; font-size: 16px; }
-    footer { border-top: 1px solid #ffffff0c; padding: 23px 0 0; color: #77748f; font-size: 11px; }
-    footer span:last-child { color: #a59dbd; }
-    #message { min-height: 22px; color: #9ce0cc; font-size: 13px; margin-top: 16px; }
-    @keyframes float { 50% { transform: translateY(-16px); } }
-    @media (max-width: 760px) { .shell { padding: 25px 7%; } main { grid-template-columns: 1fr; gap: 0; padding: 60px 0 25px; } h1 { letter-spacing: -4px; } .art { height: 390px; margin-top: 15px; } .orbit.two { width: 340px; height: 340px; } .orbit { width: 290px; height: 290px; } .orb { width: 225px; height: 225px; } .status { font-size: 10px; } footer { align-items: flex-start; line-height: 1.7; } }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+    :root {
+      color-scheme: dark;
+      font-family: 'DM Sans', sans-serif;
+      background: #101026;
+      color: #f7f5ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100svh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at 78% 30%, #7447ce28, transparent 48%), radial-gradient(ellipse at 10% 90%, #1a9b9b16, transparent 45%);
+    }
+
+    .shell {
+      max-width: 1280px;
+      margin: auto;
+      padding: 32px 6%;
+      position: relative;
+    }
+
+    header,
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: -.6px;
+      font-size: 21px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .brand-icon {
+      color: #c2afff;
+      font-family: monospace;
+      font-size: 26px;
+    }
+
+    .status {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+      color: #aaa7bf;
+      font-size: 12px;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #8ce6c0;
+      box-shadow: 0 0 14px #8ce6c066;
+    }
+
+    main {
+      min-height: calc(100svh - 180px);
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 42px;
+      padding: 70px 0;
+    }
+
+    .eyebrow {
+      color: #c4b2ff;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.6px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: #b59bf4;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(64px, 7.8vw, 104px);
+      font-weight: 500;
+      line-height: 1.02;
+      letter-spacing: -6px;
+      margin: 28px 0 25px;
+    }
+
+    h1 span {
+      background: linear-gradient(105deg, #cbb7ff 5%, #a697fc 50%, #82dfda);
+      background-clip: text;
+      color: transparent;
+    }
+
+    .description {
+      max-width: 360px;
+      color: #a6a3ba;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    button {
+      margin-top: 25px;
+      border: 1px solid #d9cfff44;
+      background: #c7b4ff;
+      color: #22183b;
+      padding: 16px 23px;
+      border-radius: 9px;
+      font: 700 13px 'DM Sans', sans-serif;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 29px;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 35px #b195ff30;
+    }
+
+    button:focus-visible {
+      outline: 3px solid #8ce6c0;
+      outline-offset: 5px;
+    }
+
+    .note {
+      color: #77748f;
+      font-size: 11px;
+      margin-top: 18px;
+      letter-spacing: .2px;
+    }
+
+    .art {
+      position: relative;
+      height: 440px;
+      display: grid;
+      place-items: center;
+    }
+
+    .orbit {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border: 1px solid #c8b0ff19;
+      border-radius: 50%;
+      transform: rotate(-30deg) scaleY(.7);
+    }
+
+    .orbit.two {
+      width: 460px;
+      height: 460px;
+      transform: rotate(35deg) scaleY(.7);
+      border-style: dashed;
+    }
+
+    .orb {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 25%, #f0ddff, #b28af2 30%, #6654b9 60%, #242752 85%);
+      box-shadow: inset -22px -20px 38px #080d2a88, 0 0 90px #9563e72b;
+      animation: float 6s ease-in-out infinite;
+      position: relative;
+    }
+
+    .orb::after {
+      content: '';
+      position: absolute;
+      inset: -17px;
+      border-radius: 50%;
+      border: 1px solid #ccbcff1c;
+    }
+
+    .code-card {
+      position: absolute;
+      bottom: 32px;
+      left: 10px;
+      right: 0;
+      max-width: 370px;
+      margin: auto;
+      padding: 18px 22px;
+      border: 1px solid #c4b3ff29;
+      border-radius: 12px;
+      background: #18182cdd;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 20px 60px #0003;
+      transform: rotate(-4deg);
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 17px;
+    }
+
+    .window-dots i {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #55516d;
+    }
+
+    .window-dots i:first-child {
+      background: #ce91ad;
+    }
+
+    .window-dots i:nth-child(2) {
+      background: #d7c18e;
+    }
+
+    .window-dots i:last-child {
+      background: #8fc6b0;
+    }
+
+    code {
+      font-size: 13px;
+      color: #a9a4c1;
+    }
+
+    .purple {
+      color: #c7a5fa;
+    }
+
+    .mint {
+      color: #9ce0cc;
+    }
+
+    .spark {
+      position: absolute;
+      color: #d5c4ff;
+      font-size: 30px;
+      top: 48px;
+      right: 42px;
+    }
+
+    .tiny-star {
+      position: absolute;
+      color: #95d7cf;
+      top: 150px;
+      left: 22px;
+      font-size: 16px;
+    }
+
+    footer {
+      border-top: 1px solid #ffffff0c;
+      padding: 23px 0 0;
+      color: #77748f;
+      font-size: 11px;
+    }
+
+    footer span:last-child {
+      color: #a59dbd;
+    }
+
+    #message {
+      min-height: 22px;
+      color: #9ce0cc;
+      font-size: 13px;
+      margin-top: 16px;
+    }
+
+    @keyframes float {
+      50% {
+        transform: translateY(-16px);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        padding: 25px 7%;
+      }
+
+      main {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 60px 0 25px;
+      }
+
+      h1 {
+        letter-spacing: -4px;
+      }
+
+      .art {
+        height: 390px;
+        margin-top: 15px;
+      }
+
+      .orbit.two {
+        width: 340px;
+        height: 340px;
+      }
+
+      .orbit {
+        width: 290px;
+        height: 290px;
+      }
+
+      .orb {
+        width: 225px;
+        height: 225px;
+      }
+
+      .status {
+        font-size: 10px;
+      }
+
+      footer {
+        align-items: flex-start;
+        line-height: 1.7;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
   </style>
 </head>
+
 <body>
   <div class="shell">
     <header>
@@ -57,15 +363,20 @@
       <section>
         <div class="eyebrow">Small start. Infinite possibilities.</div>
         <h1>Hello,<br><span>World.</span></h1>
-        <p class="description">Every great idea starts with a little hello.<br>Here’s to making something extraordinary.</p>
+        <p class="description">Every great idea starts with a little hello.<br>Here’s to making something extraordinary.
+        </p>
         <button id="hello-button" type="button">Say hello <span aria-hidden="true">↗</span></button>
         <div class="note">A tiny moment. A whole new beginning.</div>
         <div id="message" role="status" aria-live="polite"></div>
       </section>
       <div class="art" aria-label="A floating lavender planet with an orbit and a Hello World code card" role="img">
-        <div class="orbit"></div><div class="orbit two"></div><span class="spark">✦</span><span class="tiny-star">✧</span>
+        <div class="orbit"></div>
+        <div class="orbit two"></div><span class="spark">✦</span><span class="tiny-star">✧</span>
         <div class="orb"></div>
-        <div class="code-card"><div class="window-dots"><i></i><i></i><i></i></div><code><span class="purple">console</span>.log(<span class="mint">"Hello, World!"</span>);</code></div>
+        <div class="code-card">
+          <div class="window-dots"><i></i><i></i><i></i></div>
+          <code><span class="purple">console</span>.log(<span class="mint">"Hello, World!"</span>);</code>
+        </div>
       </div>
     </main>
     <footer><span>Made of pixels & possibilities.</span><span>Your next chapter starts here. ↗</span></footer>
@@ -77,4 +388,5 @@
     });
   </script>
 </body>
+
 </html>
