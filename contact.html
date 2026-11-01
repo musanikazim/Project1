@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#101026">
-<title>Contact — Beginnings</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101026">
+    <title>Contact — Beginnings</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body><div class="shell">
-<header><a class="brand" href="index.html"><span class="brand-icon" aria-hidden="true">✳</span> beginnings.</a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html" aria-current="page">Contact</a></nav></header>
-<main><section><div class="eyebrow">Good things start with hello</div>
-<h1>Let’s<br><span>connect.</span></h1>
-<p class="description">An idea, a question, or just a friendly hello. Every conversation is a new beginning.</p>
-<p class="note">Curiosity is always welcome here.</p></section>
-<section class="panel" aria-labelledby="contact-title"><h2 id="contact-title">Write a little hello.</h2>
-<p class="form-note">This is a demo form. Messages aren’t sent or stored.</p>
-<form id="contact-form">
-<label for="name">Your name</label><input id="name" name="name" autocomplete="name" placeholder="What should we call you?" required maxlength="100">
-<label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
-<label for="contact-message">Your message</label><textarea id="contact-message" name="message" placeholder="Tell us what’s on your mind…" required maxlength="5000"></textarea>
-<button type="submit">Try the form <span aria-hidden="true">↗</span></button>
-<p id="form-status" role="status" aria-live="polite"></p>
-</form></section></main>
-<footer><span>Made of pixels &amp; possibilities.</span><span>Your next chapter starts here. ↗</span></footer>
-</div><script>
-document.getElementById('contact-form').addEventListener('submit', function(event) {
- event.preventDefault();
- document.getElementById('form-status').textContent = 'Thanks for saying hello, ' + document.getElementById('name').value.trim() + '! This is a demo; nothing has been sent.';
-});
-</script></body></html>
+
+<body>
+    <div class="shell">
+        <header><a class="brand" href="index.html"><span class="brand-icon" aria-hidden="true">✳</span> beginnings.</a>
+            <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a
+                    href="contact.html" aria-current="page">Contact with Me Only</a></nav>
+        </header>
+        <main>
+            <section>
+                <div class="eyebrow">Good things start with hello</div>
+                <h1>Let’s<br><span>connect.</span></h1>
+                <p class="description">An idea, a question, or just a friendly hello. Every conversation is a new
+                    beginning.</p>
+                <p class="note">Curiosity is always welcome here.</p>
+            </section>
+            <section class="panel" aria-labelledby="contact-title">
+                <h2 id="contact-title">Write a little hello.</h2>
+                <p class="form-note">This is a demo form. Messages aren’t sent or stored.</p>
+                <form id="contact-form">
+                    <label for="name">Your name</label><input id="name" name="name" autocomplete="name"
+                        placeholder="What should we call you?" required maxlength="100">
+                    <label for="email">Email address</label><input id="email" name="email" type="email"
+                        autocomplete="email" placeholder="you@example.com" required>
+                    <label for="contact-message">Your message</label><textarea id="contact-message" name="message"
+                        placeholder="Tell us what’s on your mind…" required maxlength="5000"></textarea>
+                    <button type="submit">Try the form <span aria-hidden="true">↗</span></button>
+                    <p id="form-status" role="status" aria-live="polite"></p>
+                </form>
+            </section>
+        </main>
+        <footer><span>Made of pixels &amp; possibilities.</span><span>Your next chapter starts here. ↗</span></footer>
+    </div>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            document.getElementById('form-status').textContent = 'Thanks for saying hello, ' + document.getElementById('name').value.trim() + '! This is a demo; nothing has been sent.';
+        });
+    </script>
+</body>
+
+</html>
